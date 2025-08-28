@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // on teste si on a reçu une requ�
 
     // la distance a-t-elle été bien envoyée ?
     if (isset($_POST['distance'])) {
-        $distance = isset($_POST['distance']);
+        $distance = intval($_POST['distance']);
     }
 
     // le fait que ça soit un jour fériée a-t-il été bien envoyée ?
@@ -66,8 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // on teste si on a reçu une requ�
     // on se servira du résultat plus tard (dans le html)
     $result = TaxiFareCalculator::calculateFare($jourSemaine, $hour, $zone, $distance, $estFerie);
 }
-
-
 ?>
 
 <!DOCTYPE html>
